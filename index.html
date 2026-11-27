@@ -440,6 +440,10 @@
       align-items: center;
       justify-content: center;
     }
+    .hero-photo-frame { position: relative; width: min(100%, 390px); aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden; border: 1px solid rgba(230,201,122,.55); box-shadow: 0 24px 65px rgba(0,0,0,.3); }
+    .hero-photo-frame::after { content: ''; position: absolute; inset: 35% 0 0; background: linear-gradient(transparent, rgba(8,18,43,.78)); }
+    .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo-caption { position: absolute; z-index: 1; left: 1.25rem; right: 1.25rem; bottom: 1.25rem; color: #fff; font: 600 1rem/1.4 var(--font-serif); }
     .hero-card {
       background: rgba(255,255,255,.07);
       backdrop-filter: blur(10px);
@@ -554,12 +558,10 @@
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
       border-radius: 16px;
       height: 380px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,.2);
-      font-size: 5rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
     }
+    .nosotros-img img { width: 100%; height: 100%; object-fit: cover; }
     .valores-list {
       list-style: none;
       display: flex;
@@ -1032,23 +1034,11 @@
           </div>
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-card">
-            <div class="hero-stat-row">
-              <div class="stat-box">
-                <span class="num">+500</span>
-                <span class="label">Casos atendidos</span>
-              </div>
-              <div class="stat-box">
-                <span class="num">+15</span>
-                <span class="label">Años de experiencia</span>
-              </div>
-              <div class="stat-box">
-                <span class="num">5</span>
-                <span class="label">Áreas de especialidad</span>
-              </div>
-            </div>
-          </div>
+        <div class="hero-visual">
+          <figure class="hero-photo-frame">
+            <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Biblioteca jurídica con columnas clásicas" fetchpriority="high" />
+            <figcaption class="hero-photo-caption">Asesoría cercana, estrategia jurídica y compromiso con sus derechos.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -1100,7 +1090,7 @@
     <section id="nosotros" aria-labelledby="nosotros-heading">
       <div class="container">
         <div class="nosotros-inner">
-          <div class="nosotros-img" role="img" aria-label="Equipo jurídico profesional">⚖</div>
+          <div class="nosotros-img"><img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Estanterías de una biblioteca profesional de derecho" loading="lazy" /></div>
           <div>
             <div class="section-label">Sobre Nosotros</div>
             <h2 class="section-title" id="nosotros-heading">Compromiso jurídico con valores sólidos</h2>
@@ -1509,6 +1499,7 @@
         window.scrollY > 10 ? '0 4px 24px rgba(13,27,64,.25)' : '0 2px 8px rgba(13,27,64,.1)';
     });
   </script>
+  <script src="legal-knowledge.js"></script>
   <script src="chatbot.js"></script>
 </body>
 </html>
